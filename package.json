@@ -1,0 +1,35 @@
+{
+	"name": "number.prototype.toexponential",
+	"version": "0.0.0",
+	"description": "An ES-spec-compliant Number.prototype.toExponential shim/polyfill/replacement that works as far down as ES3",
+	"main": "index.js",
+	"exports": {
+		".": "./index.js",
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/es-shims/Number.prototype.toExponential.git"
+	},
+	"keywords": [
+		"ecmascript",
+		"javascript",
+		"polyfill",
+		"shim",
+		"number",
+		"exponential",
+		"toexponential"
+	],
+	"author": "Jordan Harband <ljharb@gmail.com>",
+	"funding": {
+		"url": "https://github.com/es-shims/Number.prototype.toExponential?sponsor=1"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/es-shims/Number.prototype.toExponential/issues"
+	},
+	"homepage": "https://github.com/es-shims/Number.prototype.toExponential#readme"
+}
