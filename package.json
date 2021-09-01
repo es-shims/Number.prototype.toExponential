@@ -4,11 +4,29 @@
 	"description": "An ES-spec-compliant Number.prototype.toExponential shim/polyfill/replacement that works as far down as ES3",
 	"main": "index.js",
 	"exports": {
-		".": "./index.js",
+		".": [
+			{
+				"import": "./index.mjs",
+				"require": "./index.js",
+				"default": "./index.js"
+			},
+			"./index.js"
+		],
+		"./polyfill": "./polyfill.js",
+		"./implementation": "./implementation.js",
+		"./shim": "./shim.js",
+		"./auto": "./auto.js",
 		"./package.json": "./package.json"
 	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"prepublishOnly": "safe-publish-latest",
+		"prepublish": "not-in-publish || npm run prepublishOnly",
+		"pretest": "npm run lint",
+		"lint": "eslint --ext=js,mjs .",
+		"tests-only": "nyc tape 'test/**/*.js'",
+		"tests-esm": "nyc node test/index.mjs",
+		"test": "npm run tests-only && npm run tests-esm",
+		"posttest": "aud --production"
 	},
 	"repository": {
 		"type": "git",
@@ -31,5 +49,19 @@
 	"bugs": {
 		"url": "https://github.com/es-shims/Number.prototype.toExponential/issues"
 	},
-	"homepage": "https://github.com/es-shims/Number.prototype.toExponential#readme"
+	"homepage": "https://github.com/es-shims/Number.prototype.toExponential#readme",
+	"devDependencies": {
+		"@ljharb/eslint-config": "^18.0.0",
+		"aud": "^1.1.5",
+		"eslint": "^7.32.0",
+		"functions-have-names": "^1.2.2",
+		"nyc": "^10.3.2",
+		"safe-publish-latest": "^1.1.4",
+		"tape": "^5.3.1"
+	},
+	"dependencies": {
+		"call-bind": "^1.0.2",
+		"define-properties": "^1.1.3",
+		"es-abstract": "^1.18.5"
+	}
 }
