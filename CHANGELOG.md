@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.1](https://github.com/es-shims/Number.prototype.toExponential/compare/v1.0.0...v1.0.1) - 2021-08-31
+
+### Commits
+
+- [Fix] handle IE 6-8 not throwing on fractionalDigits [`1ee52e0`](https://github.com/es-shims/Number.prototype.toExponential/commit/1ee52e0fa49fbc355e7e57924f6d37851e03dfe8)
+- [Refactor] use `math.log10` [`6f5f251`](https://github.com/es-shims/Number.prototype.toExponential/commit/6f5f2516c2b569cabe6ee4df494af4dd4c2366d1)
+- [Tests] add `@es-shims/api` [`5bd4ff3`](https://github.com/es-shims/Number.prototype.toExponential/commit/5bd4ff3e81b7d3fe4bd58cb9cb3537de6a69f907)
+
 ## v1.0.0 - 2021-08-31
 
 ### Commits
