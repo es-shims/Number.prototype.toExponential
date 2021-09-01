@@ -7,12 +7,12 @@ var $abs = GetIntrinsic('%Math.abs%');
 var $floor = GetIntrinsic('%Math.floor%');
 var $pow = GetIntrinsic('%Math.pow%');
 var $round = GetIntrinsic('%Math.round%');
-var $Number = GetIntrinsic('%Number%');
 var $isNaN = GetIntrinsic('%isNaN%');
 
 var log10 = require('math.log10/polyfill')();
 
 var ToInteger = require('es-abstract/2020/ToInteger');
+var thisNumberValue = require('es-abstract/2020/thisNumberValue');
 
 var $numberToString = callBound('Number.prototype.toString');
 var $strSlice = callBound('String.prototype.slice');
@@ -27,7 +27,7 @@ try {
 
 module.exports = function toExponential(fractionDigits) {
 	// 1: Let x be this Number value.
-	var x = $Number(this);
+	var x = thisNumberValue(this);
 
 	if (typeof fractionDigits === 'undefined') {
 		return $toExponential(x);
