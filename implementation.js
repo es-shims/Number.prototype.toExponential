@@ -12,11 +12,7 @@ var $Number = GetIntrinsic('%Number%');
 var $numberToString = GetIntrinsic('%Number.prototype.toString%');
 var $strSlice = GetIntrinsic('%String.prototype.slice%');
 
-var $log = GetIntrinsic('%Math.log%');
-var $LOG10E = GetIntrinsic('%Math.LOG10E%');
-var $log10 = GetIntrinsic('%Math.log10%', true) || function log10(value) {
-	return $log(value) * $LOG10E;
-};
+var log10 = require('math.log10/polyfill')();
 
 var ToInteger = require('es-abstract/2020/ToInteger');
 
@@ -82,7 +78,7 @@ module.exports = function toExponential(fractionDigits) {
 		f = 0;
 		m = '0';
 	} else { // 9: Else, x != 0
-		var L = $log10(x);
+		var L = log10(x);
 		e = $floor(L); // 10 ** e <= x and x < 10 ** (e+1)
 		var n = 0;
 		if (typeof fractionDigits !== 'undefined') { // eslint-disable-line no-negated-condition
@@ -96,7 +92,7 @@ module.exports = function toExponential(fractionDigits) {
 				e += 1;
 			}
 		} else {
-			f = 16; // start from Math.ceil(Math.log10(Number.MAX_SAFE_INTEGER)) and loop down
+			f = 16; // start from Math.ceil(log10(Number.MAX_SAFE_INTEGER)) and loop down
 			var guessN = $round($pow(10, L - e + f));
 			var targetF = f;
 			while (f-- > 0) { // eslint-disable-line no-plusplus
