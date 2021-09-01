@@ -16,7 +16,7 @@ This package implements the [es-shim API](https://github.com/es-shims/api) inter
 ## Where this is needed
 
 In particular:
- - Edge 15-18, and the equivalent versions of ChakraCore, have a rounding bug
+ - Edge 15-17, and the equivalent versions of ChakraCore, have a rounding bug
  - IE 6-8 do not properly throw on ±Infinity as fractionalDigits
 
 If you are not concerned with supporting these engines, there is no need to use this package.
