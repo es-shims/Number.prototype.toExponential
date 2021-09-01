@@ -5,21 +5,22 @@ var callBound = require('call-bind/callBound');
 
 var $abs = GetIntrinsic('%Math.abs%');
 var $floor = GetIntrinsic('%Math.floor%');
-var $isFinite = GetIntrinsic('%isFinite%');
 var $pow = GetIntrinsic('%Math.pow%');
 var $round = GetIntrinsic('%Math.round%');
 var $Number = GetIntrinsic('%Number%');
-var $numberToString = GetIntrinsic('%Number.prototype.toString%');
-var $strSlice = GetIntrinsic('%String.prototype.slice%');
+var $isNaN = GetIntrinsic('%isNaN%');
 
 var log10 = require('math.log10/polyfill')();
 
 var ToInteger = require('es-abstract/2020/ToInteger');
 
+var $numberToString = callBound('Number.prototype.toString');
+var $strSlice = callBound('String.prototype.slice');
 var $toExponential = callBound('Number.prototype.toExponential');
 
 var maxDigits = 20;
 try {
+	// ES2018 increased the limit from 20 to 100
 	$toExponential(1, 100);
 	maxDigits = 100;
 } catch (e) { /**/ }
@@ -28,19 +29,13 @@ module.exports = function toExponential(fractionDigits) {
 	// 1: Let x be this Number value.
 	var x = $Number(this);
 
-	if (!$isFinite(x)) {
-		return $toExponential(x, fractionDigits);
-	}
 	if (typeof fractionDigits === 'undefined') {
 		return $toExponential(x);
 	}
 	var f = ToInteger(fractionDigits);
-
-	if (f < 0 || f > maxDigits) {
-		return $toExponential(x, f);
+	if ($isNaN(x)) {
+		return 'NaN';
 	}
-
-	// only cases left are a finite receiver + in-range fractionDigits
 
 	// implementation adapted from https://gist.github.com/SheetJSDev/1100ad56b9f856c95299ed0e068eea08
 
@@ -53,19 +48,15 @@ module.exports = function toExponential(fractionDigits) {
 		x = -x;
 	}
 
-	/*
-	 * 6: If x = +Infinity
-	 * if (!isFinite(x)) {
-	 *     return s + 'Infinity';
-	 * }
-	 */
+	// 6: If x = +Infinity
+	if (x === Infinity) {
+		return s + 'Infinity';
+	}
 
-	/*
-	 * 7: If fractionDigits is not undefined and (f < 0 or f > 20), throw a RangeError exception.
-	 * if (typeof fractionDigits !== 'undefined' && (f < 0 || f > 20)) {
-	 *     throw new RangeError('Fraction Digits ' + fractionDigits + ' out of range');
-	 * }
-	 */
+	// 7: If fractionDigits is not undefined and (f < 0 or f > 20), throw a RangeError exception.
+	if (typeof fractionDigits !== 'undefined' && (f < 0 || f > maxDigits)) {
+		throw new RangeError('Fraction digits ' + fractionDigits + ' out of range');
+	}
 
 	var m = '';
 	var e = 0;
