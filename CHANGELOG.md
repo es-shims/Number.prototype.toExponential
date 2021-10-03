@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.2](https://github.com/es-shims/Number.prototype.toExponential/compare/v1.0.1...v1.0.2) - 2021-10-03
+
+### Commits
+
+- [Deps] update `es-abstract` [`fbef089`](https://github.com/es-shims/Number.prototype.toExponential/commit/fbef0898cb0dcd139be31eb166c96861a450717d)
+- [Fix] use `thisNumberValue` instead of `Number()` [`45aef15`](https://github.com/es-shims/Number.prototype.toExponential/commit/45aef15dc681d7fb1729c5071446d55ac92a6752)
+- [actions] update workflows [`6f5a556`](https://github.com/es-shims/Number.prototype.toExponential/commit/6f5a5569a538db605fc8eff2d6d691f1fbc7b8e4)
+- [Dev Deps] update `@es-shims/api` [`7b966fd`](https://github.com/es-shims/Number.prototype.toExponential/commit/7b966fd0cffcbd39a4833034269c99e08db5e75a)
+- [readme] Edge 18 works fine [`7b8c229`](https://github.com/es-shims/Number.prototype.toExponential/commit/7b8c2294337712e67276fb9450fd0886627487f5)
+
 ## [v1.0.1](https://github.com/es-shims/Number.prototype.toExponential/compare/v1.0.0...v1.0.1) - 2021-08-31
 
 ### Commits
