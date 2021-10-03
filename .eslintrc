@@ -11,7 +11,7 @@
 		"new-cap": [2, {
 			"capIsNewExceptions": [
 				"GetIntrinsic",
-				"ToInteger",
+				"ToIntegerOrInfinity",
 			],
 		}],
 	},

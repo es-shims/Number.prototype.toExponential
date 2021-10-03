@@ -11,8 +11,8 @@ var $isNaN = GetIntrinsic('%isNaN%');
 
 var log10 = require('math.log10/polyfill')();
 
-var ToInteger = require('es-abstract/2020/ToInteger');
-var thisNumberValue = require('es-abstract/2020/thisNumberValue');
+var ToIntegerOrInfinity = require('es-abstract/2021/ToIntegerOrInfinity');
+var thisNumberValue = require('es-abstract/2021/thisNumberValue');
 
 var $numberToString = callBound('Number.prototype.toString');
 var $strSlice = callBound('String.prototype.slice');
@@ -32,7 +32,7 @@ module.exports = function toExponential(fractionDigits) {
 	if (typeof fractionDigits === 'undefined') {
 		return $toExponential(x);
 	}
-	var f = ToInteger(fractionDigits);
+	var f = ToIntegerOrInfinity(fractionDigits);
 	if ($isNaN(x)) {
 		return 'NaN';
 	}
