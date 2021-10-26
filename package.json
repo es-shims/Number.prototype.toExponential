@@ -77,5 +77,8 @@
 		"commitLimit": false,
 		"backfillLimit": false,
 		"hideCredit": true
+	},
+	"testling": {
+		"files": "test/shimmed.js"
 	}
 }

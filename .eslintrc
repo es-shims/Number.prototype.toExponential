@@ -14,5 +14,6 @@
 				"ToIntegerOrInfinity",
 			],
 		}],
+		"operator-linebreak": [2, "before"],
 	},
 }
