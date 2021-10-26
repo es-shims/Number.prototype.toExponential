@@ -58,6 +58,8 @@ module.exports = function (toExponential, t) {
 		st.equal(toExponential(1.2345, 4), '1.2345e+0');
 		st.equal(toExponential(1.2345, 5), '1.23450e+0');
 
+		st.equal(toExponential(1.255, 2), '1.25e+0');
+
 		st.equal(toExponential(25.0, 0), '3e+1');
 
 		st.equal(toExponential(-6.9e-11, 4), '-6.9000e-11');

@@ -7,6 +7,7 @@ module.exports = function getPolyfill() {
 		!Number.prototype.toExponential
 		|| (-6.9e-11).toExponential(4) !== '-6.9000e-11' // Edge v15 - v17
 		|| (25).toExponential(0) !== '3e+1' // FF v3.6 - v86
+		|| 1.255.toExponential(2) !== '1.25e+0' // IE <= 11, Edge <= v14
 	) {
 		return implementation;
 	}
