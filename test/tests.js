@@ -36,6 +36,7 @@ module.exports = function (toExponential, t) {
 	t.equal(toExponential(NaN, 'abc'), 'NaN');
 
 	t.equal(toExponential(Infinity), 'Infinity');
+	t.equal(toExponential(Infinity, 0), 'Infinity');
 	t.equal(toExponential(-Infinity), '-Infinity');
 
 	t.equal(toExponential(Infinity, Infinity), 'Infinity');
