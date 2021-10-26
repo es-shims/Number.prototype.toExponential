@@ -7,12 +7,13 @@ var $abs = GetIntrinsic('%Math.abs%');
 var $floor = GetIntrinsic('%Math.floor%');
 var $pow = GetIntrinsic('%Math.pow%');
 var $round = GetIntrinsic('%Math.round%');
-var $isNaN = GetIntrinsic('%isNaN%');
+var $isFinite = GetIntrinsic('%isFinite%');
 
 var log10 = require('math.log10/polyfill')();
 
 var ToIntegerOrInfinity = require('es-abstract/2021/ToIntegerOrInfinity');
 var thisNumberValue = require('es-abstract/2021/thisNumberValue');
+var NumberToString = require('es-abstract/2021/Number/toString');
 
 var $numberToString = callBound('Number.prototype.toString');
 var $strSlice = callBound('String.prototype.slice');
@@ -26,49 +27,46 @@ try {
 } catch (e) { /**/ }
 
 module.exports = function toExponential(fractionDigits) {
-	// 1: Let x be this Number value.
+	// 1. Let x be ? thisNumberValue(this value).
 	var x = thisNumberValue(this);
 
 	if (typeof fractionDigits === 'undefined') {
 		return $toExponential(x);
 	}
+	// 2. Let f be ? ToIntegerOrInfinity(fractionDigits).
 	var f = ToIntegerOrInfinity(fractionDigits);
-	if ($isNaN(x)) {
-		return 'NaN';
+	// 4. If x is not finite, return ! Number::toString(x)
+	if (!$isFinite(x)) {
+		return NumberToString(x);
 	}
 
 	// implementation adapted from https://gist.github.com/SheetJSDev/1100ad56b9f856c95299ed0e068eea08
 
-	// 4: Let s be the empty string
-	var s = '';
-
-	// 5: If x < 0
-	if (x < 0) {
-		s = '-';
-		x = -x;
-	}
-
-	// 6: If x = +Infinity
-	if (x === Infinity) {
-		return s + 'Infinity';
-	}
-
-	// 7: If fractionDigits is not undefined and (f < 0 or f > 20), throw a RangeError exception.
-	if (typeof fractionDigits !== 'undefined' && (f < 0 || f > maxDigits)) {
+	// 5. If f < 0 or f > 100, throw a RangeError exception.
+	if (f < 0 || f > maxDigits) {
 		throw new RangeError('Fraction digits ' + fractionDigits + ' out of range');
 	}
 
+	// 7: Let s be the empty String
+	var s = '';
 	var m = '';
 	var e = 0;
 	var c = '';
 	var d = '';
 
-	// 8: If x = 0 then
+	// 8: If x < 0
+	if (x < 0) {
+		s = '-';
+		x = -x;
+	}
+	// 9. If x = 0, then
 	if (x === 0) {
-		e = 0;
-		f = 0;
-		m = '0';
-	} else { // 9: Else, x != 0
+		// 9.a. Let m be the String value consisting of f + 1 occurrences of the code unit 0x0030 (DIGIT ZERO).
+		for (var i = 0; i < f + 1; i += 1) {
+			m += '0';
+		}
+		e = 0; // 9.b. Let e be 0.
+	} else { // step 10
 		var L = log10(x);
 		e = $floor(L); // 10 ** e <= x and x < 10 ** (e+1)
 		var n = 0;
@@ -103,23 +101,28 @@ module.exports = function toExponential(fractionDigits) {
 		}
 	}
 
-	// 10: If f != 0, then
+	// 11: If f != 0, then
 	if (f !== 0) {
 		m = $strSlice(m, 0, 1) + '.' + $strSlice(m, 1);
 	}
 
-	// 11: If e = 0, then
+	// 12: If e = 0, then
 	if (e === 0) {
 		c = '+';
 		d = '0';
-	} else { // 12: Else
-		c = e > 0 ? '+' : '-';
+	} else { // 13: Else
+		if (e > 0) {
+			c = '+';
+		} else {
+			c = '-';
+			e = -e;
+		}
 		d = $numberToString($abs(e), 10);
 	}
 
-	// 13: Let m be the concatenation of the four Strings m, "e", c, and d.
+	// 14: Let m be the concatenation of the four Strings m, "e", c, and d.
 	m += 'e' + c + d;
 
-	// 14: Return the concatenation of the Strings s and m.
+	// 15: Return the concatenation of the Strings s and m.
 	return s + m;
 };

@@ -45,6 +45,11 @@ module.exports = function (toExponential, t) {
 	t.equal(toExponential(-Infinity, -Infinity), '-Infinity');
 
 	t.test('should round properly', function (st) {
+		st.equal(toExponential(0), '0e+0');
+		st.equal(toExponential(0, 0), '0e+0');
+		st.equal(toExponential(0, 1), '0.0e+0');
+		st.equal(toExponential(0, 2), '0.00e+0');
+
 		st.equal(toExponential(1.0), '1e+0');
 		st.equal(toExponential(1.0, 0), '1e+0');
 		st.equal(toExponential(1.0, 1), '1.0e+0');
