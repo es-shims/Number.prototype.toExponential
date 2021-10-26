@@ -19,6 +19,7 @@ In particular:
  - Edge 15-17, and the equivalent versions of ChakraCore, have a rounding bug
  - IE 6-8 do not properly throw on ±Infinity as fractionalDigits
  - FF 3.6-86 have a rounding bug
+ - Safari < 11 and FF < 50 incorrectly throw on edge cases
 
 If you are not concerned with supporting these engines, there is no need to use this package.
 

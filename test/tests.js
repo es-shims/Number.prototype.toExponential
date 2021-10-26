@@ -15,7 +15,7 @@ module.exports = function (parseInt, t) {
 		st['throws'](
 			function () { return 1.0.toExponential(Infinity); },
 			RangeError,
-			'Infinity is out of range'
+			'Infinity is out of range on 1'
 		);
 		st['throws'](
 			function () {
@@ -32,10 +32,16 @@ module.exports = function (parseInt, t) {
 	});
 
 	t.equal(NaN.toExponential(NaN), 'NaN');
+	t.equal(NaN.toExponential(Infinity), 'NaN');
 	t.equal(NaN.toExponential('abc'), 'NaN');
 
 	t.equal(Infinity.toExponential(), 'Infinity');
 	t.equal((-Infinity).toExponential(), '-Infinity');
+
+	t.equal(toExponential(Infinity, Infinity), 'Infinity');
+	t.equal(toExponential(Infinity, -Infinity), 'Infinity');
+	t.equal(toExponential(-Infinity, Infinity), '-Infinity');
+	t.equal(toExponential(-Infinity, -Infinity), '-Infinity');
 
 	t.test('should round properly', function (st) {
 		st.equal(1.0.toExponential(), '1e+0');

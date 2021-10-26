@@ -15,5 +15,12 @@ module.exports = function getPolyfill() {
 		(1).toExponential(-Infinity);
 		return implementation;
 	} catch (e) { /**/ }
+	try {
+		NaN.toExponential(Infinity);
+		Infinity.toExponential(Infinity);
+	} catch (e) {
+		// Safari < 11 and FF < 50
+		return implementation;
+	}
 	return Number.prototype.toExponential;
 };
