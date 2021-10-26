@@ -1,6 +1,7 @@
 'use strict';
 
 var test = require('tape');
+var callBind = require('call-bind');
 var functionsHaveNames = require('functions-have-names')();
 
 var implementation = require('../implementation');
@@ -14,7 +15,7 @@ test('implementation', function (t) {
 		st.end();
 	});
 
-	runTests(implementation, t);
+	runTests(callBind(implementation), t);
 
 	t.end();
 });
