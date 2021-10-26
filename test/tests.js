@@ -44,6 +44,8 @@ module.exports = function (toExponential, t) {
 	t.equal(toExponential(-Infinity, Infinity), '-Infinity');
 	t.equal(toExponential(-Infinity, -Infinity), '-Infinity');
 
+	t.match(toExponential(123.456, 17), /^1\.2345600000000000[03]e\+2$/, 'implementation is less precise than the builtin');
+
 	t.test('should round properly', function (st) {
 		st.equal(toExponential(0), '0e+0');
 		st.equal(toExponential(0, 0), '0e+0');
@@ -62,6 +64,9 @@ module.exports = function (toExponential, t) {
 		st.match(toExponential(1.2345, 3), /^1.23[45]e\+0$/, 'both 1.234 and 1.235 are valid here');
 		st.equal(toExponential(1.2345, 4), '1.2345e+0');
 		st.equal(toExponential(1.2345, 5), '1.23450e+0');
+
+		st.match(toExponential(0.12345, 3), /^1.23[45]e-1$/, 'both 1.234 and 1.235 are valid here');
+		st.match(toExponential(12345, 3), /^1.23[45]e\+4$/, 'both 1.234 and 1.235 are valid here');
 
 		st.equal(toExponential(1.255, 2), '1.25e+0');
 
