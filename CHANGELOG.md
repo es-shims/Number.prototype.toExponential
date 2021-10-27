@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.3](https://github.com/es-shims/Number.prototype.toExponential/compare/v1.0.2...v1.0.3) - 2021-10-27
+
+### Commits
+
+- [Fix] implementation: properly handle `0.toExponential(2)` etc [`7f2b3fc`](https://github.com/es-shims/Number.prototype.toExponential/commit/7f2b3fc409661e2d7549078ae2cb771f8583a448)
+- [Tests] fix tests [`92f9820`](https://github.com/es-shims/Number.prototype.toExponential/commit/92f9820cee346cfd69f2d40145239c5259735fe7)
+- [Tests] increase coverage [`9f43110`](https://github.com/es-shims/Number.prototype.toExponential/commit/9f4311056c28dbbc7df2a12a4eab9ad07d461645)
+- [Fix] Safari &lt; 11 and FF &lt; 50 incorrectly throw on edge cases [`d34fe4b`](https://github.com/es-shims/Number.prototype.toExponential/commit/d34fe4b52d552b20eead6d79d17813db247cc684)
+- [actions] update codecov uploader [`39654a4`](https://github.com/es-shims/Number.prototype.toExponential/commit/39654a49a6b6733df9dbaee78be113114bddfad1)
+- [Fix] FF 3.6 - 86 do not round properly [`8a06af7`](https://github.com/es-shims/Number.prototype.toExponential/commit/8a06af775730f295645623541c834caf0258616b)
+- [Fix] IE &lt;= 11 and Edge &lt;= 14 have a rounding bug [`e5765a9`](https://github.com/es-shims/Number.prototype.toExponential/commit/e5765a9af462fdb6907b75146c02c0c267e941a3)
+- [Dev Deps] update `@es-shims/api` [`f04ed07`](https://github.com/es-shims/Number.prototype.toExponential/commit/f04ed072c9ecd2d8cf87ea024c51213cd549d155)
+- [Tests] increase coverage [`2e068f9`](https://github.com/es-shims/Number.prototype.toExponential/commit/2e068f90762fe5adaf7cbfff8b1eab091183fbcd)
+
 ## [v1.0.2](https://github.com/es-shims/Number.prototype.toExponential/compare/v1.0.1...v1.0.2) - 2021-10-03
 
 ### Commits
