@@ -4,7 +4,6 @@
 	"extends": "@ljharb",
 
 	"rules": {
-		"complexity": 0,
 		"id-length": 0,
 		"max-lines-per-function": 0,
 		"max-statements": 0,
@@ -16,6 +15,5 @@
 				"ToIntegerOrInfinity",
 			],
 		}],
-		"operator-linebreak": [2, "before"],
 	},
 }
