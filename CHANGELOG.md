@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.4](https://github.com/es-shims/Number.prototype.toExponential/compare/v1.0.3...v1.0.4) - 2022-11-05
+
+### Commits
+
+- [actions] reuse common workflows [`1e44b7e`](https://github.com/es-shims/Number.prototype.toExponential/commit/1e44b7ee111ee648a09a511136d68ee878a2a1ee)
+- [meta] use `npmignore` to autogenerate an npmignore file [`627e65b`](https://github.com/es-shims/Number.prototype.toExponential/commit/627e65b296b02a58721a654b2cb2ad0e2a703de7)
+- [Dev Deps] update `eslint`, `@ljharb/eslint-config`, `aud`, `auto-changelog`, `functions-have-names`, `tape` [`6e47906`](https://github.com/es-shims/Number.prototype.toExponential/commit/6e47906982ace4eadc3a4ea4a558092dcdaa4851)
+- [actions] update rebase action to use reusable workflow [`322aeb3`](https://github.com/es-shims/Number.prototype.toExponential/commit/322aeb39c4445a95e5e976171ba074751b5f3f59)
+- [Dev Deps] update `eslint`, `@ljharb/eslint-config`, `safe-publish-latest`, `tape` [`900bfaa`](https://github.com/es-shims/Number.prototype.toExponential/commit/900bfaa6151a9f9649a694a8f5629f027c7a3a83)
+- [Deps] update `define-properties`, `es-abstract` [`4a60be5`](https://github.com/es-shims/Number.prototype.toExponential/commit/4a60be50771baeee5045116aa5a6a54c1aada459)
+
 ## [v1.0.3](https://github.com/es-shims/Number.prototype.toExponential/compare/v1.0.2...v1.0.3) - 2021-10-27
 
 ### Commits
