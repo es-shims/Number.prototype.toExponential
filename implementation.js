@@ -11,9 +11,9 @@ var $isFinite = GetIntrinsic('%isFinite%');
 
 var log10 = require('math.log10/polyfill')();
 
-var ToIntegerOrInfinity = require('es-abstract/2022/ToIntegerOrInfinity');
-var thisNumberValue = require('es-abstract/2022/thisNumberValue');
-var NumberToString = require('es-abstract/2022/Number/toString');
+var ToIntegerOrInfinity = require('es-abstract/2023/ToIntegerOrInfinity');
+var thisNumberValue = require('es-abstract/2023/thisNumberValue');
+var NumberToString = require('es-abstract/2023/Number/toString');
 
 var $numberToString = callBound('Number.prototype.toString');
 var $strSlice = callBound('String.prototype.slice');
@@ -27,17 +27,16 @@ try {
 } catch (e) { /**/ }
 
 module.exports = function toExponential(fractionDigits) {
-	// 1. Let x be ? thisNumberValue(this value).
-	var x = thisNumberValue(this);
+	var x = thisNumberValue(this); // step 1
 
 	if (typeof fractionDigits === 'undefined') {
 		return $toExponential(x);
 	}
-	// 2. Let f be ? ToIntegerOrInfinity(fractionDigits).
-	var f = ToIntegerOrInfinity(fractionDigits);
-	// 4. If x is not finite, return ! Number::toString(x)
+	var f = ToIntegerOrInfinity(fractionDigits); // step 2
+
+	// 4. If x is not finite, return ! Number::toString(x, 10)
 	if (!$isFinite(x)) {
-		return NumberToString(x);
+		return NumberToString(x, 10);
 	}
 
 	// implementation adapted from https://gist.github.com/SheetJSDev/1100ad56b9f856c95299ed0e068eea08
