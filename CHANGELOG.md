@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.5](https://github.com/es-shims/Number.prototype.toExponential/compare/v1.0.4...v1.0.5) - 2023-09-06
+
+### Commits
+
+- [Deps] update `define-properties`, `es-abstract` [`92cec49`](https://github.com/es-shims/Number.prototype.toExponential/commit/92cec49e8dbdb5a92b208356ce26de32543067a9)
+- [Dev Deps] update `@es-shims/api`, `@ljharb/eslint-config`, `aud`, `tape` [`2450393`](https://github.com/es-shims/Number.prototype.toExponential/commit/245039393a61bdaff915e11e69ba9998bd367fed)
+
 ## [v1.0.4](https://github.com/es-shims/Number.prototype.toExponential/compare/v1.0.3...v1.0.4) - 2022-11-05
 
 ### Commits
