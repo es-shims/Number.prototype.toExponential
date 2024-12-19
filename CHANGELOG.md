@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.6](https://github.com/es-shims/Number.prototype.toExponential/compare/v1.0.5...v1.0.6) - 2024-12-19
+
+### Commits
+
+- [Refactor] remove useless ESM implementation [`c4a18f2`](https://github.com/es-shims/Number.prototype.toExponential/commit/c4a18f24927b52af17ffa363b531ab02f101b0de)
+- [actions] split out node 10-20, and 20+ [`0dcf538`](https://github.com/es-shims/Number.prototype.toExponential/commit/0dcf53856dfeb64126cf5e5cb3a546feff324127)
+- [meta] add missing `engines.node` [`86ebb7d`](https://github.com/es-shims/Number.prototype.toExponential/commit/86ebb7def60c76f5b2eb9ea865430ceec22d4453)
+- [Refactor] use `math-intrinsics` directly [`61b7232`](https://github.com/es-shims/Number.prototype.toExponential/commit/61b72328a9387e68897a2c85ea3084c0bc86c564)
+- [Deps] update `call-bind`, `define-properties`, `es-abstract` [`46f8f54`](https://github.com/es-shims/Number.prototype.toExponential/commit/46f8f5407553e6bda78970ac65b94f77ed508b78)
+- [Dev Deps] update `@es-shims/api`, `@ljharb/eslint-config`, `auto-changelog`, `npmignore`, `tape` [`e0c753b`](https://github.com/es-shims/Number.prototype.toExponential/commit/e0c753b737b61f589cbcc92a2e550f87eb65b3db)
+- [Refactor] use `call-bound` directly [`ca61e8e`](https://github.com/es-shims/Number.prototype.toExponential/commit/ca61e8e128f630bba441063d8856edfdb2a586c2)
+- [Tests] replace `aud` with `npm audit` [`94fe93d`](https://github.com/es-shims/Number.prototype.toExponential/commit/94fe93dd264f1e04d0809d97f3b6ea5b2b06c084)
+- [Dev Deps] add missing peer dep [`973ffa7`](https://github.com/es-shims/Number.prototype.toExponential/commit/973ffa7ac8f32669493615c11633b24ce6bf8bf2)
+
 ## [v1.0.5](https://github.com/es-shims/Number.prototype.toExponential/compare/v1.0.4...v1.0.5) - 2023-09-06
 
 ### Commits
