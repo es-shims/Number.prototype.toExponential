@@ -1,13 +1,12 @@
 'use strict';
 
-var GetIntrinsic = require('get-intrinsic');
 var callBound = require('call-bound');
 
-var $abs = GetIntrinsic('%Math.abs%');
-var $floor = GetIntrinsic('%Math.floor%');
-var $pow = GetIntrinsic('%Math.pow%');
-var $round = GetIntrinsic('%Math.round%');
-var $isFinite = GetIntrinsic('%isFinite%');
+var $abs = require('math-intrinsics/abs');
+var $floor = require('math-intrinsics/floor');
+var $pow = require('math-intrinsics/pow');
+var $round = require('math-intrinsics/round');
+var $isFinite = require('math-intrinsics/isFinite');
 
 var log10 = require('math.log10/polyfill')();
 
