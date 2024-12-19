@@ -54,6 +54,12 @@
 		"url": "https://github.com/es-shims/Number.prototype.toExponential/issues"
 	},
 	"homepage": "https://github.com/es-shims/Number.prototype.toExponential#readme",
+	"dependencies": {
+		"call-bind": "^1.0.2",
+		"define-properties": "^1.2.0",
+		"es-abstract": "^1.22.1",
+		"math.log10": "^1.0.0"
+	},
 	"devDependencies": {
 		"@es-shims/api": "^2.4.2",
 		"@ljharb/eslint-config": "^21.1.0",
@@ -66,11 +72,8 @@
 		"safe-publish-latest": "^2.0.0",
 		"tape": "^5.6.6"
 	},
-	"dependencies": {
-		"call-bind": "^1.0.2",
-		"define-properties": "^1.2.0",
-		"es-abstract": "^1.22.1",
-		"math.log10": "^1.0.0"
+	"engines": {
+		"node": ">= 0.4"
 	},
 	"auto-changelog": {
 		"output": "CHANGELOG.md",
