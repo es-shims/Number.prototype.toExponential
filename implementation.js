@@ -11,9 +11,9 @@ var $isFinite = GetIntrinsic('%isFinite%');
 
 var log10 = require('math.log10/polyfill')();
 
-var ToIntegerOrInfinity = require('es-abstract/2023/ToIntegerOrInfinity');
-var thisNumberValue = require('es-abstract/2023/thisNumberValue');
-var NumberToString = require('es-abstract/2023/Number/toString');
+var ToIntegerOrInfinity = require('es-abstract/2024/ToIntegerOrInfinity');
+var thisNumberValue = require('es-abstract/2024/ThisNumberValue');
+var NumberToString = require('es-abstract/2024/Number/toString');
 
 var $numberToString = callBound('Number.prototype.toString');
 var $strSlice = callBound('String.prototype.slice');
